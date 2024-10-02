@@ -1,5 +1,6 @@
 let idProdutoAtual = 1; // Mantém o controle do último ID de produto
 let produtoSelecionado;
+const imagemPadrao = './img/semFoto.png'; // Caminho da imagem padrão
 
 // Função para alterar o nome do produto
 function mudarNomeProduto(idProduto) {
@@ -42,34 +43,31 @@ function uploadImagem(idProduto) {
     };
     reader.readAsDataURL(input.files[0]);
 }
-//adicionar produtos a pagina HTML
+
+
+// Função para adicionar produtos
 function adicionarProduto() {
-    // Criar novo ID para o produto
     const idProduto = document.querySelectorAll('.cartao-produto').length + 1;
 
-    // Criar novo container de produto
     const novoProduto = document.createElement('div');
     novoProduto.classList.add('col-md-4');
     novoProduto.id = `produto-${idProduto}`;
 
-    // Definir o HTML do novo produto
     novoProduto.innerHTML = `
         <div class="cartao-produto mb-4">
             <div class="card">
-                <img src="placeholder.jpg" alt="Produto ${idProduto}" id="imagem-produto-${idProduto}" class="card-img-top img-fluid">
+                <img src="${imagemPadrao}" alt="Produto ${idProduto}" id="imagem-produto-${idProduto}" class="card-img-top img-fluid">
                 <div class="card-body">
                     <h5 class="card-title" id="nome-produto-${idProduto}">Produto ${idProduto}</h5>
                     <p class="card-text">Estoque: <span id="estoque-produto-${idProduto}">0</span> unidades</p>
                     <p class="status" id="status-${idProduto}"><span class="badge badge-danger">Esgotado</span></p>
 
-                    <!-- Botões de controle -->
                     <div class="d-flex justify-content-between flex-wrap">
                         <button class="btn btn-outline-secondary mb-2" data-toggle="modal" data-target="#modalMudarNome" onclick="abrirModal(${idProduto})">Mudar Nome</button>
                         <button class="btn btn-outline-primary mb-2" onclick="ajustarEstoque(${idProduto}, 1)">Adicionar +1</button>
                         <button class="btn btn-outline-danger mb-2" onclick="ajustarEstoque(${idProduto}, -1)">Remover -1</button>
                     </div>
 
-                    <!-- Botões de UPDATE IMG E DELETE -->
                     <div class="d-flex justify-content-between flex-wrap mt-3">
                         <div class="upload">
                             <label for="upload-imagem-${idProduto}" class="btn btn-outline-info mb-2">Alterar Imagem</label>
@@ -82,9 +80,9 @@ function adicionarProduto() {
         </div>
     `;
 
-    // Adicionar o novo produto à lista de produtos
     document.getElementById('lista-produtos').appendChild(novoProduto);
 }
+
 
 // Função para excluir um produto
 function excluirProduto(idProduto) {
