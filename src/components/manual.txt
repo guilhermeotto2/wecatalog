@@ -1,0 +1,1 @@
+Aqui ficarão os componentes reutilizáveis (footer, nav, cards...)

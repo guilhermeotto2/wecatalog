@@ -1,0 +1,1 @@
+Aqui serão as funções para interagir com a api

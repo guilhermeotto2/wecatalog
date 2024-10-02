@@ -1,0 +1,55 @@
+/* Estilos gerais */
+.cartao-produto {
+    padding: 10px;
+}
+
+/* Botões de controle alinhados */
+.d-flex {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.d-flex button {
+    flex: 1;
+    margin-right: 5px;
+}
+
+.d-flex button:last-child {
+    margin-right: 0;
+}
+
+/* Media Query para dispositivos móveis */
+@media (max-width: 768px) {
+    .col-md-4 {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .card-img-top {
+        height: auto;
+        max-width: 100%;
+    }
+
+    .card-body {
+        text-align: center;
+    }
+
+    .btn-group button, .d-flex button {
+        margin-bottom: 10px;
+        width: 100%;
+    }
+
+    .status .badge {
+        font-size: 1.2rem;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    .mt-5 {
+        margin-top: 20px;
+    }
+}
+
