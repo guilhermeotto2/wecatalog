@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/cssAdmin.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@700&display=swap" rel="stylesheet">
-
 </head>
 <body>
     <div class="container mt-5">
@@ -19,8 +18,8 @@
             <button class="btn btn-success" onclick="adicionarProduto()">Adicionar Novo</button>
         </div>
 
-        <!-- Linha de produtos -->
-        <div class="row" id="lista-produtos">
+           <!-- Linha de produtos -->
+           <div class="row" id="lista-produtos">
 
             <!-- Produto 1 -->
             <div class="col-md-4" id="produto-1">
@@ -30,29 +29,30 @@
                         <div class="card-body">
                             <h5 class="card-title" id="nome-produto-1">Produto 1</h5>
                             <p class="card-text">Estoque: <span id="estoque-produto-1">10</span> unidades</p>
+                            <p class="card-text">Preço: R$ <span id="preco-produto-1">100.00</span></p> <!-- Preço -->
                             <p class="status" id="status-1"><span class="badge badge-success">Disponível</span></p>
-
+            
                             <!-- Botões de controle -->
                             <div class="d-flex justify-content-between flex-wrap">
                                 <button class="btn btn-outline-secondary mb-2" data-toggle="modal" data-target="#modalMudarNome" onclick="abrirModal(1)">Mudar Nome</button>
+                                <button class="btn btn-outline-secondary mb-2" data-toggle="modal" data-target="#modalMudarPreco" onclick="abrirModalPreco(1)">Mudar Preço</button> <!-- Botão para mudar preço -->
                                 <button class="btn btn-outline-primary mb-2" onclick="ajustarEstoque(1, 1)">Adicionar +1</button>
                                 <button class="btn btn-outline-danger mb-2" onclick="ajustarEstoque(1, -1)">Remover -1</button>
                             </div>
-                            
-                            <!-- Botões de UPDATE IMG E DELETE -->
+            
                             <div class="d-flex justify-content-between flex-wrap mt-3">
-                                <div class="upload">
-                                    <label for="upload-imagem-1" class="btn btn-outline-info mb-2">Alterar Imagem</label>
+                                <div class="upload d-flex" style="flex: 1;">
+                                    <label for="upload-imagem-1" class="btn btn-outline-info mb-2" style="width: 100%;">Alterar Imagem</label>
                                     <input type="file" id="upload-imagem-1" class="input-file" style="display:none;" onchange="uploadImagem(1)">
                                 </div>
-                                <button class="btn btn-danger mb-2" onclick="excluirProduto(1)">Excluir Produto</button>
+                                <button class="btn btn-danger mb-2" style="width: 100%;" onclick="excluirProduto(1)">Excluir Produto</button>
                             </div>
-
+                            
                         </div>
                     </div>
                 </div>
             </div>
-
+            
         </div>
     </div>
 
@@ -73,6 +73,28 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                     <button type="button" class="btn btn-primary" onclick="salvarNomeProduto()">Salvar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para mudar preço do produto -->
+    <div class="modal fade" id="modalMudarPreco" tabindex="-1" aria-labelledby="modalMudarPrecoLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalMudarPrecoLabel">Mudar Preço do Produto</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <label for="novo-preco-produto">Novo preço:</label>
+                    <input type="number" class="form-control" id="novo-preco-produto" placeholder="Digite o novo preço do produto" min="0" step="0.01">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" onclick="salvarPrecoProduto()">Salvar</button>
                 </div>
             </div>
         </div>
