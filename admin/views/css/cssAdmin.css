@@ -16,17 +16,25 @@ body {
 .cartao-produto {
     padding: 1px; 
 }
-
 .cartao-produto .card {
     border: 2px solid #7a7a7a; /* Borda azul Bootstrap */
     box-shadow: 0 1px 8px rgba(0, 0, 0, 0.507); /* Sombra sutil */
     background-color: rgb(236, 236, 236);
+    height: 100%; /* Para garantir que todos os cartões tenham a mesma altura */
 }
+
+.card-body {
+    display: flex; /* Alinhamento vertical */
+    flex-direction: column; /* Direção de coluna para o conteúdo do cartão */
+    justify-content: space-between; /* Distribui espaço entre os elementos */
+}
+
 .card-img-top {
     width: 100%;
-    height: 320px; /* Ajuste a altura de acordo com a necessidade */
-    object-fit: cover; /* Isso faz com que a imagem se ajuste ao contêiner, cortando o excesso */
+    height: 320px; /* Ajuste a altura conforme necessário */
+    object-fit: cover; /* Faz com que a imagem se ajuste ao contêiner */
 }
+
 
 /* Botões de controle alinhados */
 .d-flex {
