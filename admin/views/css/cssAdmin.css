@@ -1,42 +1,32 @@
-.titulo{
+/* Estilo da Título */
+.titulo {
     text-shadow: 
-    -1px -1px 0 #ffffff71,  /* Sombra branca para o topo esquerdo */
-    -1px -1px 0 #ffffff71,   /* Sombra branca para o topo direito */
-    -1px -1px 0 #ffffff71,   /* Sombra branca para o fundo esquerdo */
-    -1px -1px 0 #ffffff71;    /* Sombra branca para o fundo direito */
+    -1px -1px 0 #ffffff71, 
+    -1px -1px 0 #ffffff71;
 }
 
+/* Estilo geral */
 body {
-    background-color:#afafaf; /* Fundo da página mais escuro */
-    color: black; /* Cor do texto */
-    font-weight: bold; /* Deixar o texto mais visível */
+    background-color: #afafaf; 
+    color: black;
+    font-weight: bold;
 }
 
-/* Estilos gerais */
+/* Estilos de Cartão de Produto */
 .cartao-produto {
-    padding: 1px; 
-}
-.cartao-produto .card {
-    border: 2px solid #7a7a7a; /* Borda azul Bootstrap */
-    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.507); /* Sombra sutil */
+    border: 2px solid #7a7a7a; 
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.507);
     background-color: rgb(236, 236, 236);
-    height: 100%; /* Para garantir que todos os cartões tenham a mesma altura */
-}
-
-.card-body {
-    display: flex; /* Alinhamento vertical */
-    flex-direction: column; /* Direção de coluna para o conteúdo do cartão */
-    justify-content: space-between; /* Distribui espaço entre os elementos */
+    height: 100%; 
 }
 
 .card-img-top {
     width: 100%;
-    height: 320px; /* Ajuste a altura conforme necessário */
-    object-fit: cover; /* Faz com que a imagem se ajuste ao contêiner */
+    height: 320px; /* Altura padrão */
+    object-fit: cover; /* Imagem sempre enquadrada */
 }
 
-
-/* Botões de controle alinhados */
+/* Estilos dos botões */
 .d-flex {
     display: flex;
     justify-content: space-between;
@@ -52,36 +42,56 @@ body {
     margin-right: 0;
 }
 
-/* Media Query para dispositivos móveis */
+/* Media Queries */
 @media (max-width: 768px) {
+    
+    .d-flex {
+        flex-direction: column; /* Alinha verticalmente */
+    }
+
+    .d-flex button {
+        width: 100%; /* Garante que todos os botões tenham 100% de largura */
+        margin-bottom: 10px; /* Espaçamento entre os botões */
+    }
+
     .col-md-4 {
         width: 100%;
         margin-bottom: 20px;
     }
 
     .card-img-top {
-        height: auto;
+        height: 320px;
         max-width: 100%;
+        object-fit: cover; /* Imagem sempre enquadrada */
     }
 
     .card-body {
         text-align: center;
     }
-
-    .btn-group button, .d-flex button {
-        margin-bottom: 10px;
-        width: 100%;
+    
+    .d-flex {
+        flex-direction: column; /* Muda para coluna */
+        align-items: stretch; /* Garante que os botões ocupem toda a largura */
     }
 
-    .status .badge {
-        font-size: 1.2rem;
+    .d-flex button {
+        width: 100%; /* Garante que todos os botões tenham 100% de largura */
+        margin-bottom: 10px; /* Espaçamento entre os botões */
     }
-
-    .text-center {
-        text-align: center;
-    }
-
-    .mt-5 {
-        margin-top: 20px;
-    }
+    
 }
+    /* Para dispositivos maiores (padrão) */
+    .d-flex {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    /* Para telas menores (celulares) */
+    @media (max-width: 576px) {
+        .d-flex {
+        flex-direction: column;
+        align-items: flex-start; /* Alinha os itens à esquerda */
+        width: 100%;
+        }
+    }
